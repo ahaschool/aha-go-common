@@ -18,3 +18,5 @@ require (
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
 	golang.org/x/sys v0.0.0-20190812073006-9eafafc0a87e // indirect
 )
+
+replace gopkg.in/jcmturner/rpc.v1 v1.1.1 => gopkg.in/jcmturner/rpc.v1 v1.1.0
