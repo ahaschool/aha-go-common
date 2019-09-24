@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"ahaschool.com/ahamkt/aha-go-library.git/net/netutil/breaker"
+	"github.com/ahaschool/aha-go-common/net/netutil/breaker"
 
 	"github.com/pkg/errors"
 )

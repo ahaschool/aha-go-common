@@ -15,8 +15,8 @@
 package redis
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/container/pool"
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	"github.com/ahaschool/aha-go-common/container/pool"
+	xtime "github.com/ahaschool/aha-go-common/time"
 	"context"
 	"time"
 )

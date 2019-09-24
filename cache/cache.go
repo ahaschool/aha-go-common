@@ -1,7 +1,7 @@
 package cache
 
 import (
-	//"ahaschool.com/ahamkt/aha-go-library.git/log"
+	//"github.com/ahaschool/aha-go-common/log"
 	"errors"
 	"runtime"
 	"sync"

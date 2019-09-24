@@ -6,7 +6,7 @@ import (
 	"io"
 	"time"
 
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	xtime "github.com/ahaschool/aha-go-common/time"
 )
 
 var (

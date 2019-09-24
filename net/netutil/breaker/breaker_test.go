@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	xtime "github.com/ahaschool/aha-go-common/time"
 )
 
 func TestGroup(t *testing.T) {

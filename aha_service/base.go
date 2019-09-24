@@ -1,8 +1,8 @@
 package aha_service
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/http"
-	"ahaschool.com/ahamkt/aha-go-library.git/util"
+	"github.com/ahaschool/aha-go-common/http"
+	"github.com/ahaschool/aha-go-common/util"
 )
 
 type Config struct {

@@ -25,8 +25,8 @@ import (
 	"sync"
 	"time"
 
-	"ahaschool.com/ahamkt/aha-go-library.git/container/pool"
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	"github.com/ahaschool/aha-go-common/container/pool"
+	xtime "github.com/ahaschool/aha-go-common/time"
 )
 
 var beginTime, _ = time.Parse("2006-01-02 15:04:05", "2006-01-02 15:04:05")

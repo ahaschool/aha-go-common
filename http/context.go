@@ -1,7 +1,7 @@
 package http
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/errcode"
+	"github.com/ahaschool/aha-go-common/errcode"
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"

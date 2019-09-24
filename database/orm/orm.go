@@ -1,11 +1,11 @@
 package orm
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
+	"github.com/ahaschool/aha-go-common/log"
 	"strings"
 	"time"
 
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	xtime "github.com/ahaschool/aha-go-common/time"
 
 	// database driver
 	_ "github.com/go-sql-driver/mysql"

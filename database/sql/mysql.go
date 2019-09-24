@@ -1,9 +1,9 @@
 package sql
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
-	"ahaschool.com/ahamkt/aha-go-library.git/net/netutil/breaker"
-	"ahaschool.com/ahamkt/aha-go-library.git/time"
+	"github.com/ahaschool/aha-go-common/log"
+	"github.com/ahaschool/aha-go-common/net/netutil/breaker"
+	"github.com/ahaschool/aha-go-common/time"
 
 	// database driver
 	_ "github.com/go-sql-driver/mysql"

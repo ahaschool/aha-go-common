@@ -1,7 +1,7 @@
 package http
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
+	"github.com/ahaschool/aha-go-common/log"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"ahaschool.com/ahamkt/aha-go-library.git/net/netutil/breaker"
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	"github.com/ahaschool/aha-go-common/net/netutil/breaker"
+	xtime "github.com/ahaschool/aha-go-common/time"
 )
 
 // ExampleGroup show group usage.

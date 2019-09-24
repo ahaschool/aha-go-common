@@ -16,7 +16,7 @@ logs/*.log
 go 1.12
 
 require (
-	ahaschool.com/ahamkt/aha-go-library.git v0.2.3
+	github.com/ahaschool/aha-go-common v0.2.3
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.3.0
 	github.com/go-sql-driver/mysql v1.4.1 // indirect
@@ -41,7 +41,7 @@ protoc --proto_path=${GOPATH}/src:. --go_out=. --micro_out=. src/srv/*/proto/*.p
 	_tplApiCmd = `package main
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
+	"github.com/ahaschool/aha-go-common/log"
 
 	"{{.ModuleName}}/conf"
 	httpApi "{{.ModuleName}}/src/api"
@@ -84,9 +84,9 @@ func main()  {
 	_tplSrvCmd = `package main
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/cache/redis"
-	"ahaschool.com/ahamkt/aha-go-library.git/database/sql"
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
+	"github.com/ahaschool/aha-go-common/cache/redis"
+	"github.com/ahaschool/aha-go-common/database/sql"
+	"github.com/ahaschool/aha-go-common/log"
 	
 	"{{.ModuleName}}/conf"
 	exampleHd "{{.ModuleName}}/src/srv/example/handler"
@@ -153,11 +153,11 @@ func logWrapper(fn server.HandlerFunc) server.HandlerFunc {
 	_tplConf = `package conf
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/cache/redis"
-	"ahaschool.com/ahamkt/aha-go-library.git/database/sql"
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
-	"ahaschool.com/ahamkt/aha-go-library.git/net/netutil/breaker"
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	"github.com/ahaschool/aha-go-common/cache/redis"
+	"github.com/ahaschool/aha-go-common/database/sql"
+	"github.com/ahaschool/aha-go-common/log"
+	"github.com/ahaschool/aha-go-common/net/netutil/breaker"
+	xtime "github.com/ahaschool/aha-go-common/time"
 
 	"fmt"
 	"github.com/joho/godotenv"
@@ -250,7 +250,7 @@ func Init() {
 }`
 	_tplErrcode = `package conf
 
-import "ahaschool.com/ahamkt/aha-go-library.git/errcode"
+import "github.com/ahaschool/aha-go-common/errcode"
 
 // 兑换码错误
 var (
@@ -270,8 +270,8 @@ var (
 	_tplSrcApiExample = `package api
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/errcode"
-	"ahaschool.com/ahamkt/aha-go-library.git/http"
+	"github.com/ahaschool/aha-go-common/errcode"
+	"github.com/ahaschool/aha-go-common/http"
 
 	"{{.ModuleName}}/conf"
 	example "{{.ModuleName}}/src/srv/example/proto"
@@ -317,7 +317,7 @@ func (a *ExampleApi) GetExampleInfo(ctx *http.Context) {
 	_tplSrcApiRouter = `package api
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/http"
+	"github.com/ahaschool/aha-go-common/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -333,8 +333,8 @@ func InitRouter() (engine *gin.Engine) {
 	_tplSrcSrvExampleHandlerExample = `package handler
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/database/sql"
-	"ahaschool.com/ahamkt/aha-go-library.git/log"
+	"github.com/ahaschool/aha-go-common/database/sql"
+	"github.com/ahaschool/aha-go-common/log"
 
 	example "{{.ModuleName}}/src/srv/example/proto"
 
@@ -375,7 +375,7 @@ func (s *ExampleSrv) ExampleInfo(ctx context.Context, req *example.ExampleInfoQu
 	_tplSrcSrvExampleHandlerRepository = `package handler
 
 import (
-	"ahaschool.com/ahamkt/aha-go-library.git/database/sql"
+	"github.com/ahaschool/aha-go-common/database/sql"
 
 	"{{.ModuleName}}/src/srv/example/model"
 	example "{{.ModuleName}}/src/srv/example/proto"

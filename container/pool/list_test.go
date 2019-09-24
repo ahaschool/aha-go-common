@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	xtime "ahaschool.com/ahamkt/aha-go-library.git/time"
+	xtime "github.com/ahaschool/aha-go-common/time"
 
 	"github.com/stretchr/testify/assert"
 )
