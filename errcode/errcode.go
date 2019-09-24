@@ -1,11 +1,5 @@
 package errcode
 
-import (
-	//"aha-api-server/conf"
-	"github.com/micro/go-micro/errors"
-	"net/http"
-)
-
 // 全部的错误返回代号
 var (
 
@@ -44,23 +38,3 @@ func Add(code int32, message string) *Status {
 	}
 }
 
-// 返回错误状态
-func ServerAdd(code int32, message string) *errors.Error {
-	return &errors.Error{
-		Code:   code,
-		Detail: message,
-		Status: http.StatusText(200),
-	}
-}
-
-// 返回错误状态
-func Error(err *errors.Error, message string) *errors.Error {
-	if message != "" {
-		err.Detail = message
-	}
-	return &errors.Error{
-		Code:   err.Code,
-		Detail: err.Detail,
-		Status: http.StatusText(200),
-	}
-}
