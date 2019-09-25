@@ -7,6 +7,7 @@ import (
 func TestLog(t *testing.T)  {
 	Init(&Config{
 		Dir: "/tmp/",
+		LogType:"std",
 	})
 	testInfo()
 	testWarn()

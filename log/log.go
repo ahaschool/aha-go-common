@@ -46,7 +46,7 @@ func Debug(format string, args ...interface{})  {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
-		fmt.Sprintf(format, args...)
+		log.Println(fmt.Sprintf(format, args...))
 	}
 }
 
@@ -56,7 +56,7 @@ func Info(format string, args ...interface{}) {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
-		fmt.Sprintf(format, args...)
+		log.Println(fmt.Sprintf(format, args...))
 	}
 }
 
@@ -66,7 +66,7 @@ func Warn(format string, args ...interface{})  {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
-		fmt.Sprintf(format, args...)
+		log.Println(fmt.Sprintf(format, args...))
 	}
 }
 
@@ -76,6 +76,6 @@ func Error(format string, args ...interface{})  {
 		elogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
-		fmt.Sprintf(format, args...)
+		log.Println(fmt.Sprintf(format, args...))
 	}
 }
