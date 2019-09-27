@@ -10,7 +10,7 @@ type Config struct {
 	ReqHost string
 }
 
-func ahaPost(c *Config, xenvStr string, path string, data interface{}) (response string, err error) {
+func AhaPost(c *Config, xenvStr string, path string, data interface{}) (response string, err error) {
 	// decode xenv value
 	xenv, err := util.XenvDecode(xenvStr)
 	if err != nil {
@@ -29,7 +29,7 @@ func ahaPost(c *Config, xenvStr string, path string, data interface{}) (response
 	return http.Post(c.ReqHost+path, data, headers)
 }
 
-func ahaGet(c *Config, xenvStr string, path string, params map[string]string) (response string, err error) {
+func AhaGet(c *Config, xenvStr string, path string, params map[string]string) (response string, err error) {
 
 	// decode xenv value
 	xenv, err := util.XenvDecode(xenvStr)
