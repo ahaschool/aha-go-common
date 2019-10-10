@@ -2,10 +2,8 @@ package orm
 
 import (
 	"github.com/ahaschool/aha-go-common/log"
-	"strings"
-	"time"
-
 	xtime "github.com/ahaschool/aha-go-common/time"
+	"strings"
 
 	// database driver
 	_ "github.com/go-sql-driver/mysql"
@@ -36,7 +34,7 @@ func NewMySQL(c *Config) (db *gorm.DB) {
 	}
 	db.DB().SetMaxIdleConns(c.Idle)
 	db.DB().SetMaxOpenConns(c.Active)
-	db.DB().SetConnMaxLifetime(time.Duration(c.IdleTimeout) / time.Second)
+	//db.DB().SetConnMaxLifetime(time.Duration(c.IdleTimeout) / time.Second)
 	db.SetLogger(ormLog{})
 	return
 }
