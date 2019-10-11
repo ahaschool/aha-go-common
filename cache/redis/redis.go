@@ -53,11 +53,9 @@ type Conn interface {
 	WithContext(ctx context.Context) Conn
 }
 
-var P *Pool
-var config *Config
 
-func Init(c *Config) {
-	config = &Config{
+func NewRedis(c *Config) (p *Pool) {
+	config := &Config{
 		Name:         c.Name,
 		Proto:        c.Proto,
 		Addr:         c.Addr,
@@ -68,9 +66,10 @@ func Init(c *Config) {
 		WriteTimeout: xtime.Duration(time.Second),
 	}
 	config.Config = &pool.Config{
-		Active:      20,
-		Idle:        2,
-		IdleTimeout: xtime.Duration(90 * time.Second),
+		Active:      c.Active,
+		Idle:        c.Idle,
+		IdleTimeout: xtime.Duration(c.IdleTimeout),
 	}
-	P = NewPool(config)
+	p = NewPool(config)
+	return
 }
