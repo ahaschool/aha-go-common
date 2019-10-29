@@ -1,7 +1,9 @@
 package http
 
 import (
+	"encoding/json"
 	"github.com/ahaschool/aha-go-common/errcode"
+	"github.com/ahaschool/aha-go-common/log"
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"
@@ -84,6 +86,8 @@ func (ctx *Context) Error(err interface{}) {
 		ctx.Res["code"] = 500
 		ctx.Res["message"] = err.(error).Error()
 	}
+	sjson, _ := json.Marshal(ctx.Res)
+	log.Error("response error data %s", sjson)
 }
 
 func (ctx *Context) Response(data interface{}) {
@@ -91,4 +95,6 @@ func (ctx *Context) Response(data interface{}) {
 	status := errcode.Success
 	ctx.Res["code"] = status.Code()
 	ctx.Res["message"] = status.Message()
+	sjson, _ := json.Marshal(ctx.Res)
+	log.Error("response  data %s", sjson)
 }
