@@ -95,6 +95,4 @@ func (ctx *Context) Response(data interface{}) {
 	status := errcode.Success
 	ctx.Res["code"] = status.Code()
 	ctx.Res["message"] = status.Message()
-	sjson, _ := json.Marshal(ctx.Res)
-	log.Error("response  data %s", sjson)
 }
