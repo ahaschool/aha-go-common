@@ -87,7 +87,15 @@ func (ctx *Context) Error(err interface{}) {
 		ctx.Res["message"] = err.(error).Error()
 	}
 	sjson, _ := json.Marshal(ctx.Res)
-	log.Error("response error data %s", sjson)
+	body, _ := ctx.Gin.Get("body")
+	hjson, _ := json.Marshal(ctx.Gin.Request.Header)
+	log.Info("| %s  %s | %s| %s| %s",
+		ctx.Gin.Request.Method,
+		ctx.Gin.Request.RequestURI,
+		hjson,
+		body,
+		sjson,
+	)
 }
 
 func (ctx *Context) Response(data interface{}) {
