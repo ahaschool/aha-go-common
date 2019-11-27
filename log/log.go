@@ -74,7 +74,7 @@ func Info(format string, args ...interface{}) {
 			matches, _ := filepath.Glob(dir + "*")
 			for _, path := range matches {
 				fi, err := os.Stat(path)
-				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, -1, 0)) {
+				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, 0, -200)) {
 					os.Remove(path)
 				}
 			}
@@ -111,7 +111,7 @@ func Error(format string, args ...interface{})  {
 			matches, _ := filepath.Glob(dir + "*")
 			for _, path := range matches {
 				fi, err := os.Stat(path)
-				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, -1, 0)) {
+				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, 0, -200)) {
 					os.Remove(path)
 				}
 			}
