@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"time"
 )
 
 type Config struct {
@@ -62,23 +61,6 @@ func Debug(format string, args ...interface{})  {
 func Info(format string, args ...interface{}) {
 	ilogger.SetPrefix("[Info]")
 	if LogType == "file" {
-		if info, err := os.Stat(ifile); err == nil &&
-			info.ModTime().Format("2006-01-02") != time.Now().Format("2006-01-02") {
-			dir := Dir + "history/"
-			date := info.ModTime().Format("2006-01-02")
-			err := os.Rename(ifile, dir+filepath.Base(ifile)+"-"+date)
-			if err != nil {
-				ilogger.Output(2, fmt.Sprintf("rotate err (%v)", err))
-				return
-			}
-			matches, _ := filepath.Glob(dir + "*")
-			for _, path := range matches {
-				fi, err := os.Stat(path)
-				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, 0, -200)) {
-					os.Remove(path)
-				}
-			}
-		}
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
@@ -99,23 +81,6 @@ func Warn(format string, args ...interface{})  {
 func Error(format string, args ...interface{})  {
 	elogger.SetPrefix("[Error]")
 	if LogType == "file" {
-		if info, err := os.Stat(efile); err == nil &&
-			info.ModTime().Format("2006-01-02") != time.Now().Format("2006-01-02") {
-			dir := Dir + "history/"
-			date := info.ModTime().Format("2006-01-02")
-			err := os.Rename(efile, dir+filepath.Base(efile)+"-"+date)
-			if err != nil {
-				ilogger.Output(2, fmt.Sprintf("rotate err (%v)", err))
-				return
-			}
-			matches, _ := filepath.Glob(dir + "*")
-			for _, path := range matches {
-				fi, err := os.Stat(path)
-				if err == nil && fi.ModTime().Before(time.Now().AddDate(0, 0, -200)) {
-					os.Remove(path)
-				}
-			}
-		}
 		elogger.Output(2, fmt.Sprintf(format, args...))
 	}
 	if LogType == "std" {
