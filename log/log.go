@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 type Config struct {
@@ -44,12 +45,12 @@ func Init(c *Config) {
 	elogger = log.New(errorfile, "[Error]", log.LstdFlags)
 
 	// 设置记录格式
-	ilogger.SetFlags(log.LstdFlags | log.Lshortfile)
-	elogger.SetFlags(log.LstdFlags | log.Lshortfile)
+	elogger.SetFlags(log.Llongfile)
+	ilogger.SetFlags(log.Llongfile)
 }
 
 func Debug(format string, args ...interface{})  {
-	ilogger.SetPrefix("[Debug]")
+	ilogger.SetPrefix(time.Now().Format("2006-01-02 15:04:05")+"[Debug]")
 	if LogType == "file" {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
@@ -59,7 +60,7 @@ func Debug(format string, args ...interface{})  {
 }
 
 func Info(format string, args ...interface{}) {
-	ilogger.SetPrefix("[Info]")
+	ilogger.SetPrefix(time.Now().Format("2006-01-02 15:04:05")+"[Info]")
 	if LogType == "file" {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
@@ -69,7 +70,7 @@ func Info(format string, args ...interface{}) {
 }
 
 func Warn(format string, args ...interface{})  {
-	ilogger.SetPrefix("[Warn]")
+	ilogger.SetPrefix(time.Now().Format("2006-01-02 15:04:05")+"[Warn]")
 	if LogType == "file" {
 		ilogger.Output(2, fmt.Sprintf(format, args...))
 	}
@@ -79,7 +80,7 @@ func Warn(format string, args ...interface{})  {
 }
 
 func Error(format string, args ...interface{})  {
-	elogger.SetPrefix("[Error]")
+	elogger.SetPrefix(time.Now().Format("2006-01-02 15:04:05")+"[Error]")
 	if LogType == "file" {
 		elogger.Output(2, fmt.Sprintf(format, args...))
 	}
