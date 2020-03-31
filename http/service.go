@@ -38,5 +38,7 @@ func NewService(engine *gin.Engine, method string, path string, handler HandlerF
 		engine.GET(path, ctl)
 	case "post":
 		engine.POST(path, ctl)
+	case "head":
+		engine.HEAD(path, ctl)
 	}
 }
