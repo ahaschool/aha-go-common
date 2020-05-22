@@ -39,22 +39,12 @@ func NewContext(gin *gin.Context) (context *Context) {
 // GetAhaUserID 获取用户编号
 func (ctx *Context) GetAhaUserID() int {
 	var str string
-	if ctx.Gin.Request.Method == "GET" {
-		str = ctx.Gin.DefaultQuery("user_id", "")
-		UserID, err := strconv.Atoi(str)
-		if err != nil {
-			return 0
-		}
-		return UserID
+	str = ctx.Gin.DefaultQuery("user_id", "")
+	UserID, err := strconv.Atoi(str)
+	if err != nil {
+		return 0
 	}
-	if ctx.Gin.Request.Method == "POST" {
-		UserID, ok := ctx.Gin.Get("UserID")
-		if ok {
-			return UserID.(int)
-		}
-	}
-
-	return 0
+	return UserID
 }
 
 func (ctx *Context) GetHeader(key string) string {
