@@ -27,6 +27,7 @@ var (
 func Init(c *Config) {
 	LogType = c.LogType
 	Dir = c.Dir
+	os.Mkdir(c.Dir, 0744)
 	ifile = fmt.Sprintf("%s/%s", c.Dir, c.InfoFileName)
 	efile = fmt.Sprintf("%s/%s", c.Dir, c.ErrorFileName)
 	os.Mkdir(filepath.Dir(ifile)+"/history", 0744)
